@@ -46,29 +46,30 @@ if (isset($_GET["act"]) && $_GET["act"] != "") {
             }
             include "./danhmuc/add.php";
             break;
-        case 'xoadm':
-            if (isset($_GET["id"]) && $_GET["id"] > 0) {
-                echo "<p style='color:red;'>Bạn hãy xóa hết sản phẩm thuộc danh mục này!</p>";
-            }
-            $listdanhmuc = loadall_danhmuc();
-            include "./danhmuc/list.php";
-            break;
+        // case 'xoadm':
+        //     if (isset($_GET["id"]) && $_GET["id"] > 0) {
+        //         echo "<p style='color:red;'>Bạn hãy xóa hết sản phẩm thuộc danh mục này!</p>";
+        //     }
+        //     $listdanhmuc = loadall_danhmuc();
+        //     include "./danhmuc/list.php";
+        //     break;
         case 'suadm':
             if (isset($_GET["id"]) && $_GET["id"] > 0) {
                 $dm = loadone_danhmuc($_GET["id"]);
             }
             include "./danhmuc/update.php";
             break;
-        case 'updatedm':
-            if (isset($_POST["capnhat"]) && $_POST["capnhat"]) {
-                $tenloai = $_POST["tenloai"];
-                $id_dm = $_POST["id_dm"];
-                update_dm($id_dm, $tenloai);
-                $thongbao = "Cập nhật thành công";
-            }
-            $listdanhmuc = loadall_danhmuc();
-            include "./danhmuc/list.php";
-            break;
+            case 'updatedm':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $tenloai = $_POST['tenloai'];
+                    $id = $_POST['id_dm'];
+                    update_dm($id, $tenloai);
+                    $thongbao = "✅ Cập nhật danh mục thành công!";
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
+            
         case 'listdm':
             $listdanhmuc = loadall_danhmuc();
             include "./danhmuc/list.php";
@@ -183,6 +184,15 @@ if (isset($_GET["act"]) && $_GET["act"] != "") {
         default:
             include "home.php";
             break;
+            case 'xoadm':
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    delete_danhmuc($_GET['id']);
+                    $thongbao = "✅ Xóa danh mục thành công!";
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "./danhmuc/list.php";
+                break;
+            
     }
 } else {
     include "home.php";
