@@ -97,7 +97,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>THÊM MỚI LOẠI HÀNG HÓA</h1>
+        <h1>THÊM MỚI LOẠI HÀNG HÓA 22</h1>
         <form action="index.php?act=adddm" method="POST">
             <div class="form-group">
                 <label for="maloai">Mã loại</label>
