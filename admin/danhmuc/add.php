@@ -110,7 +110,7 @@
             <div class="form-group d-flex">
                 <input type="submit" name="themmoi" value="THÊM MỚI">
                 <input type="reset" value="NHẬP LẠI">
-                <a href="index.php?act=listdm.php">
+                <a href="index.php?act=listdm">
                     <input type="button" value="DANH SÁCH">
                 </a>
             </div>
